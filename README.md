@@ -42,3 +42,6 @@ $ nano .gitignore
 $ git add .gitignore
 ```
 
+Add webpack.config.js (see the file in this directory) and add configuration to take index.js (and referenced .js 
+and .jsx file) and to convert / transpile these using a babel-loader.
+
