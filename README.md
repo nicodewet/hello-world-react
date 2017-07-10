@@ -2,7 +2,7 @@
 
 A React environment built up from scratch with Webpack, Babel, ES6 and Yarn.
 
-Thanks to [Joy Warugu](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel) for the tutorial.
+Kudos to [Joy Warugu](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel) for the parent tutorial.
 
 ## Toolchain
 
