@@ -34,4 +34,11 @@ $ git add package.json
 $ git add yarn.lock
 ```
 
+Now add node_modules/ to your .gitignore file.
+
+```
+$ touch .gitignore
+$ nano .gitignore 
+$ git add .gitignore
+```
 
