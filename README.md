@@ -42,6 +42,42 @@ $ nano .gitignore
 $ git add .gitignore
 ```
 
-Add webpack.config.js (see the file in this directory) and add configuration to take index.js (and referenced .js 
+Add webpack.config.js (see the file in this directory) which adds configuration to take index.js (and referenced .js 
 and .jsx file) and to convert / transpile these using a babel-loader.
+
+## Babel
+
+Add babel-loader dependencies specified in webpack.config.js. The preset dependencies are Babel plugins required for
+Babel to convert es2015 and react code to plain Javascript in our files.
+
+```
+$ yarn add babel-loader babel-core babel-preset-es2015 babel-preset-react --dev
+```
+
+### Configure Babel
+
+Babel configuration goes in a .babelrc file (see the file in this directory).
+
+```
+$ touch .babelrc
+$ git add .babelrc
+```
+
+With the following content in .babelrc, when babel-loader is called in webpack Babel will know which transformation libraries
+it needs to use. 
+
+```
+/* 
+    ./.babelrc
+*/  
+{
+    "presets":[
+        "es2015", "react"
+    ]
+}
+```
+
+## React
+
+
 
