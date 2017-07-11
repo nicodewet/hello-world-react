@@ -42,7 +42,7 @@ $ nano .gitignore
 $ git add .gitignore
 ```
 
-Add webpack.config.js (see the file in this directory) which adds configuration to take index.js (and referenced .js 
+Add *webpack.config.js* (see the file in this directory) which adds configuration to take index.js (and referenced .js 
 and .jsx file) and to convert / transpile these using a babel-loader.
 
 ## Babel
@@ -79,5 +79,103 @@ it needs to use.
 
 ## React
 
+```
+$ mkdir client
+Nicos-Air:hello-world-react nico$ touch client/index.js && touch client/index.html
+Nicos-Air:hello-world-react nico$ git add client/
+```
 
+Skeleton code in index.js and index.html.
 
+### index.js
+
+```
+/*
+    ./client/index.js
+    which is the webpack entry file
+*/
+console.log('Hello World');
+```
+
+### index.html
+
+```
+/*
+    ./client/index.html
+    basic html skeleton
+*/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React App Setup</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+</html>
+```
+
+### Coding with React
+
+React components will be coded with [JSX](https://facebook.github.io/react/docs/introducing-jsx.html) and also ES6. Our babel-loaders 
+will convert these as the syntax of neither JSX nor ES6 is supported by most browsers at present.
+
+Instead of adding script tags in order to reference the bundled javascript in index.html we'll use the *html-webpack-plugin* which takes
+and html skeleton and inserts the script tags with a bit of configuration.
+
+```
+$ yarn add html-webpack-plugin
+```
+
+Add the html-webpack-plugin config lines depicted below into your *webpack.config.js* file. Be sure to add the new *plugins:* line close to the end.
+
+```
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './client/index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
+module.exports = {
+  entry: './client/index.js',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js'
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
+  },
+  plugins: [HtmlWebpackPluginConfig]
+}
+```
+
+The *html-webpack-plugin* configuration sets our skeletion index.html as template, it will generate index.html as specified by the filename 
+configuration and due to the *inject: 'body'* configuration will add any Javascript to the bottom of the page just before the closing 
+*<body>* tag.
+
+#### Run
+
+Add the scripts key to *package.json* (see the file for suggested placement).
+
+```
+"scripts": {
+    "start": "webpack-dev-server"
+  },
+```
+
+Now run the application with:
+
+```
+$ yarn start
+```
+
+Open http://localhost:8080 in Chrome with Developer Tools open and look at the html and console output. As expected you'll see 
+*webpack-dev-server* running when you issue the start command.
