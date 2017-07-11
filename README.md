@@ -45,6 +45,11 @@ $ git add .gitignore
 Add *webpack.config.js* (see the file in this directory) which adds configuration to take index.js (and referenced .js 
 and .jsx file) and to convert / transpile these using a babel-loader.
 
+### Webpack
+
+To familiarise yourself with webpack, look at both the [documentation](https://webpack.github.io) and 
+[github page](https://github.com/webpack/webpack).
+
 ## Babel
 
 Add babel-loader dependencies specified in webpack.config.js. The preset dependencies are Babel plugins required for
