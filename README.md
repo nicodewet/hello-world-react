@@ -4,6 +4,8 @@ A React environment (React Project Template) built up from scratch with Webpack,
 
 Kudos to [Joy Warugu](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel) for the parent tutorial.
 
+If you simply want to clone and run it, skip down to "Clone and Run It".
+
 ## Toolchain
 
 * [React](https://facebook.github.io/react/)
@@ -253,3 +255,39 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ## React Project Template - Done!
 
 We now have a working React Project Template that can be used as a template for other projects.
+
+But, we have more than just a React Project Template, if you open say Chrome Developer Tools
+when navigating to http://locahost:8080 you'll see a Network request named *websocket*. 
+
+If you've experienced the joy of livereload before you may guess that this is why you're seeing a websocket
+connection request.
+
+As per the [webpack-dev-server](https://webpack.js.org/guides/development/#webpack-dev-server) documentation livereload 
+comes built in! Awesome.
+
+To confirm that it's working, make a change (say console.log("foobar)) in index.js and press save. You should see something like the 
+following in your terminal from which you kicked-off webpack-dev-server (via $ yarn start):
+
+```
+webpack: Compiling...
+Hash: 2dbc1c0d25c5475cd1fb
+Version: webpack 3.1.0
+Time: 295ms
+          Asset       Size  Chunks                    Chunk Names
+index_bundle.js    1.06 MB       0  [emitted]  [big]  main
+     index.html  223 bytes          [emitted]         
+ [165] ./client/index.js 815 bytes {0} [built]
+    + 267 hidden modules
+Child html-webpack-plugin for "index.html":
+       4 modules
+webpack: Compiled successfully.
+```
+
+## Clone and Run It
+
+```
+$ yarn
+$ yarn start
+```
+
+Now navigate to http://localhost:8080
