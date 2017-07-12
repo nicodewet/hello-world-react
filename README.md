@@ -42,8 +42,28 @@ $ nano .gitignore
 $ git add .gitignore
 ```
 
-Add *webpack.config.js* (see the file in this directory) which adds configuration to take index.js (and referenced .js 
+Add *webpack.config.js* (as shown below) which adds configuration to take index.js (and referenced .js 
 and .jsx file) and to convert / transpile these using a babel-loader.
+
+```
+/*
+    ./webpack.config.js
+*/
+const path = require('path');
+module.exports = {
+  entry: './client/index.js',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js'
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
+  }
+}
+```
 
 ### Webpack
 
