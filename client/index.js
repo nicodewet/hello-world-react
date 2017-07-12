@@ -1,5 +1,8 @@
 /*
-    ./client/index.js
-    which is the webpack entry file
+    this file is the webpack entry file
 */
-console.log('Hello World');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('root'));

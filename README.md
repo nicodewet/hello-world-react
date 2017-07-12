@@ -97,7 +97,7 @@ Skeleton code in index.js and index.html.
 ```
 /*
     ./client/index.js
-    which is the webpack entry file
+    this file is the webpack entry file
 */
 console.log('Hello World');
 ```
@@ -184,3 +184,50 @@ $ yarn start
 
 Open http://localhost:8080 in Chrome with Developer Tools open and look at the html and console output. As expected you'll see 
 *webpack-dev-server* running when you issue the start command.
+
+#### Add A React Component
+
+```
+$ yarn add react react-dom
+```
+
+File structure preparation and note by convention React uses [PascalCase](http://wiki.c2.com/?PascalCase) for file names (hence App.jsx):
+
+```
+$ mkdir client/components
+$ touch client/components/App.jsx
+$ git add client/components/
+```
+
+##### App.jsx
+
+```
+/*
+    ./client/components/App.jsx
+*/
+import React from 'react';
+
+export default class App extends React.Component {
+  render() {
+    return (
+     <div style={{textAlign: 'center'}}>
+        <h1>Hello World</h1>
+      </div>);
+  }
+}
+```
+
+##### index.js
+
+```
+/*
+    this file is the webpack entry file
+*/
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+
