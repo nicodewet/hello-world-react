@@ -256,6 +256,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 We now have a working React Project Template that can be used as a template for other projects.
 
+### But Wait, There's More
+
 But, we have more than just a React Project Template, if you open say Chrome Developer Tools
 when navigating to http://locahost:8080 you'll see a Network request named *websocket*. 
 
