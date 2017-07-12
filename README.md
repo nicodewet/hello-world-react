@@ -1,6 +1,6 @@
 # hello-world-react
 
-A React environment built up from scratch with Webpack, Babel, ES6 and Yarn.
+A React environment (React Project Template) built up from scratch with Webpack, Babel, ES6 and Yarn.
 
 Kudos to [Joy Warugu](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel) for the parent tutorial.
 
@@ -230,4 +230,6 @@ import App from './components/App.jsx';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+## React Project Template - Done!
 
+We now have a working React Project Template that can be used as a template for other projects.
